@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/assets/KayKit Medieval Builder Pack 1.0/Models/objects/gltf/Brown.material" type="Material" id=1]
+
+[sub_resource type="QuadMesh" id=1]
+size = Vector2( 100, 100 )
+
+[sub_resource type="SpatialMaterial" id=2]
+next_pass = ExtResource( 1 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 50, 1, 50 )
+
+[node name="Main" type="Spatial"]
+
+[node name="Floor" type="StaticBody" parent="."]
+
+[node name="Texture" type="MeshInstance" parent="Floor"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Collision" type="CollisionShape" parent="Floor"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+shape = SubResource( 3 )
