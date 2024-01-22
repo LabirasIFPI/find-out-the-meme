@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dbntle1pjecxk"
+path="res://.godot/imported/square_water_detail_noSides.obj-af36df365e9620b540a0a6618f555d13.mesh"
+
+[deps]
+
+files=["res://.godot/imported/square_water_detail_noSides.obj-af36df365e9620b540a0a6618f555d13.mesh"]
+
+source_file="res://src/assets/KayKit Medieval Builder Pack 1.0/Models/tiles/square/obj/square_water_detail_noSides.obj"
+dest_files=["res://.godot/imported/square_water_detail_noSides.obj-af36df365e9620b540a0a6618f555d13.mesh", "res://.godot/imported/square_water_detail_noSides.obj-af36df365e9620b540a0a6618f555d13.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

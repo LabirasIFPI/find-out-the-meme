@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://gbobunkptv6k"
+path="res://.godot/imported/square_forest.obj-405fd3a47f99d793517b05cf2c01d321.mesh"
+
+[deps]
+
+files=["res://.godot/imported/square_forest.obj-405fd3a47f99d793517b05cf2c01d321.mesh"]
+
+source_file="res://src/assets/KayKit Medieval Builder Pack 1.0/Models/tiles/square/obj/square_forest.obj"
+dest_files=["res://.godot/imported/square_forest.obj-405fd3a47f99d793517b05cf2c01d321.mesh", "res://.godot/imported/square_forest.obj-405fd3a47f99d793517b05cf2c01d321.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
