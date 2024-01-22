@@ -1,22 +1,20 @@
 [remap]
 
 importer="wavefront_obj"
-importer_version=1
 type="Mesh"
-uid="uid://c1xoii2ubxgby"
-path="res://.godot/imported/hex_forest_roadL_detail.obj-e4c7135efcc11bffa9dfb113b669a00d.mesh"
+path="res://.import/hex_forest_roadL_detail.obj-e4c7135efcc11bffa9dfb113b669a00d.mesh"
 
 [deps]
 
-files=["res://.godot/imported/hex_forest_roadL_detail.obj-e4c7135efcc11bffa9dfb113b669a00d.mesh"]
+files=[ "res://.import/hex_forest_roadL_detail.obj-e4c7135efcc11bffa9dfb113b669a00d.mesh" ]
 
 source_file="res://src/assets/KayKit Medieval Builder Pack 1.0/Models/tiles/hex/obj/hex_forest_roadL_detail.obj"
-dest_files=["res://.godot/imported/hex_forest_roadL_detail.obj-e4c7135efcc11bffa9dfb113b669a00d.mesh", "res://.godot/imported/hex_forest_roadL_detail.obj-e4c7135efcc11bffa9dfb113b669a00d.mesh"]
+dest_files=[ "res://.import/hex_forest_roadL_detail.obj-e4c7135efcc11bffa9dfb113b669a00d.mesh", "res://.import/hex_forest_roadL_detail.obj-e4c7135efcc11bffa9dfb113b669a00d.mesh" ]
 
 [params]
 
 generate_tangents=true
-scale_mesh=Vector3(1, 1, 1)
-offset_mesh=Vector3(0, 0, 0)
-optimize_mesh=true
-force_disable_mesh_compression=false
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

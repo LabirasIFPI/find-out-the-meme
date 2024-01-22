@@ -1,22 +1,20 @@
 [remap]
 
 importer="wavefront_obj"
-importer_version=1
 type="Mesh"
-uid="uid://d3gy7uopi5tho"
-path="res://.godot/imported/hex_rock_waterA_empty.obj-9944b31309b56b9fea5f076fe52c27ad.mesh"
+path="res://.import/hex_rock_waterA_empty.obj-9944b31309b56b9fea5f076fe52c27ad.mesh"
 
 [deps]
 
-files=["res://.godot/imported/hex_rock_waterA_empty.obj-9944b31309b56b9fea5f076fe52c27ad.mesh"]
+files=[ "res://.import/hex_rock_waterA_empty.obj-9944b31309b56b9fea5f076fe52c27ad.mesh" ]
 
 source_file="res://src/assets/KayKit Medieval Builder Pack 1.0/Models/tiles/hex/obj/hex_rock_waterA_empty.obj"
-dest_files=["res://.godot/imported/hex_rock_waterA_empty.obj-9944b31309b56b9fea5f076fe52c27ad.mesh", "res://.godot/imported/hex_rock_waterA_empty.obj-9944b31309b56b9fea5f076fe52c27ad.mesh"]
+dest_files=[ "res://.import/hex_rock_waterA_empty.obj-9944b31309b56b9fea5f076fe52c27ad.mesh", "res://.import/hex_rock_waterA_empty.obj-9944b31309b56b9fea5f076fe52c27ad.mesh" ]
 
 [params]
 
 generate_tangents=true
-scale_mesh=Vector3(1, 1, 1)
-offset_mesh=Vector3(0, 0, 0)
-optimize_mesh=true
-force_disable_mesh_compression=false
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
