@@ -13,6 +13,20 @@ var snap_vector: Vector3 = Vector3.DOWN
 @export var speed: float = 7.0
 @export var rotation_speed: float = 5.0
 
+@export var player_id := 1 :
+	set(id):
+		player_id = id
+		# Give authority over the player input to the appropriate peer.
+		$PlayerInput.set_multiplayer_authority(id)
+
+# Player synchronized input.
+@onready var input = $PlayerInput
+
+
+func _ready():
+	if player_id == multiplayer.get_unique_id():
+		camera_arm.get_node("Camera").current = true
+		
 
 func _physics_process(delta: float) -> void:
 	move_state.horizontal_movement()

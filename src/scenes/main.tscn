@@ -1,9 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://dhv3irpxinfou"]
+[gd_scene load_steps=5 format=3 uid="uid://dhv3irpxinfou"]
 
-[ext_resource type="PackedScene" uid="uid://dxjc33281nrpf" path="res://src/scenes/players/knight.tscn" id="1_y4do7"]
-[ext_resource type="PackedScene" uid="uid://dud0sdx6j5bee" path="res://src/scenes/players/barbarian.tscn" id="2_r6bar"]
-[ext_resource type="PackedScene" uid="uid://c8jq5fr4cvh08" path="res://src/scenes/players/mage.tscn" id="3_qljnj"]
-[ext_resource type="PackedScene" uid="uid://5p206gnmvbep" path="res://src/scenes/players/rogue_hooded.tscn" id="4_8avjt"]
+[ext_resource type="Script" path="res://src/scripts/multiplayer/level.gd" id="1_ymcxy"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_w04wm"]
 size = Vector2(100, 100)
@@ -15,6 +12,10 @@ albedo_color = Color(0.117647, 0.321569, 0.211765, 1)
 size = Vector3(100, 1, 100)
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_ymcxy")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.18121, 0)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -26,16 +27,12 @@ surface_material_override/0 = SubResource("StandardMaterial3D_xx61l")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_jshx5")
 
-[node name="Knight" parent="." instance=ExtResource("1_y4do7")]
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.0699828, 0.997548, 0, -0.997548, 0.0699828, 0, 48.7736, 0)
 
-[node name="Barbarian" parent="." instance=ExtResource("2_r6bar")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75415, 0, 0)
+[node name="Players" type="Node3D" parent="."]
 
-[node name="Mage" parent="." instance=ExtResource("3_qljnj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.97119, 0, 0)
-
-[node name="Rogue_Hooded" parent="." instance=ExtResource("4_8avjt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.66052, 0, 0)
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://src/scenes/players/barbarian.tscn")
+spawn_path = NodePath("../Players")
+spawn_limit = 4

@@ -4,6 +4,7 @@ class_name MoveState
 @export var player: CharacterBody3D
 @export var camera_arm: SpringArm3D
 @export var character: Node3D
+@onready var player_input: MultiplayerSynchronizer = get_parent().get_parent().get_node("PlayerInput")
 
 func horizontal_movement() -> void:
 	var aux_diection: Vector2 = Vector2.ZERO
@@ -30,6 +31,8 @@ func vertical_movement(delta: float) -> void:
 	
 	var just_landed: bool = player.is_on_floor() and player.snap_vector == Vector3.ZERO
 	var is_jumping: bool = player.is_on_floor() and Input.is_action_just_pressed("ui_select")
+	
+	player_input.jumping = is_jumping or just_landed
 	
 	if is_jumping:
 		character.action_behavior("Jump_Start")
