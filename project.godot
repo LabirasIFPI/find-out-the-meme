@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "SpringArm",
 "class": "CameraArm",
 "language": "GDScript",
-"path": "res://src/scripts/players/cameraArm.gd"
+"path": "res://src/scripts/players/camera_arm.gd"
 }, {
 "base": "Node",
 "class": "MoveState",
@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/scripts/players/player.gd"
+}, {
+"base": "Spatial",
+"class": "PlayerAnimator",
+"language": "GDScript",
+"path": "res://src/scripts/players/player_animator.gd"
 } ]
 _global_script_class_icons={
 "CameraArm": "",
 "MoveState": "",
-"Player": ""
+"Player": "",
+"PlayerAnimator": ""
 }
 
 [application]

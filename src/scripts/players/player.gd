@@ -1,6 +1,7 @@
 extends KinematicBody
 class_name Player
 
+export(NodePath) onready var character = get_node(character) as Spatial
 onready var move_state: Node = get_node("States/Move")
 onready var camera_arm: SpringArm = get_node("CameraArm")
 
@@ -25,6 +26,7 @@ func _physics_process(delta: float) -> void:
 	)
 	
 	rotate_character(delta)
+	character.animate(Vector2(velocity.x, velocity.z))
 
 func _process(_delta: float) -> void:
 	camera_arm.translation = translation

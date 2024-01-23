@@ -3,6 +3,7 @@ class_name MoveState
 
 export(NodePath) onready var player = get_node(player) as KinematicBody
 export(NodePath) onready var camera_arm = get_node(camera_arm) as SpringArm
+export(NodePath) onready var character = get_node(character) as Spatial
 
 func horizontal_movement() -> void:
 	var aux_diection: Vector2 = Vector2.ZERO
@@ -31,21 +32,15 @@ func vertical_movement(delta: float) -> void:
 	var is_jumping: bool = player.is_on_floor() and Input.is_action_just_pressed("ui_select")
 	
 	if is_jumping:
-		#temporário
-		jump()
-		
-		#character.action_behavior("Jump")
-		#animação de pulo
-		pass
+		character.action_behavior("Jump_Start")
 	
 	if just_landed and player.velocity.y < 0:
 		player.snap_vector = Vector3.DOWN
-		#character.action_behavior("Jump_Land")
-		#animação de land
+		character.action_behavior("Jump_Land")
 	
-	#if not character.on_action and abs(player.velocity.y) > 10.0:
-		#character.action_behavior("Jump_Idle")
-		#player.snap_vector = Vector3.ZERO
+	if not character.on_action and abs(player.velocity.y) > 10.0:
+		character.action_behavior("Jump_Idle")
+		player.snap_vector = Vector3.ZERO
 	
 
 func jump() -> void:
