@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8jq5fr4cvh08"]
+
+[ext_resource type="PackedScene" uid="uid://d2mnoh4d04mnk" path="res://src/assets/KayKit_Adventurers_1.0_FREE/Characters/gltf/Mage.glb" id="1_nulem"]
+
+[node name="Mage" type="CharacterBody3D"]
+
+[node name="Mage" parent="." instance=ExtResource("1_nulem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0666941, 1.19209e-07, -0.0935624)

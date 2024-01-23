@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://5p206gnmvbep"]
+
+[ext_resource type="PackedScene" uid="uid://ccaojdk8yw6x2" path="res://src/assets/KayKit_Adventurers_1.0_FREE/Characters/gltf/Rogue_Hooded.glb" id="1_cy0ka"]
+
+[node name="Rogue_Hooded" type="CharacterBody3D"]
+
+[node name="Rogue_Hooded" parent="." instance=ExtResource("1_cy0ka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.638305, -0.686191, -1.08257)
