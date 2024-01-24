@@ -20,19 +20,14 @@ func horizontal_movement() -> void:
 	player.velocity.z = move_direction.z * player.speed
 
 func get_direction() -> Vector2:
-	return Vector2(
-		Input.get_axis("ui_left", "ui_right"),
-		Input.get_axis("ui_up", "ui_down")
-	)
+	return player_input.direction
 	
 
 func vertical_movement(delta: float) -> void:
 	player.velocity.y -= player.gravity * delta
 	
 	var just_landed: bool = player.is_on_floor() and player.snap_vector == Vector3.ZERO
-	var is_jumping: bool = player.is_on_floor() and Input.is_action_just_pressed("ui_select")
-	
-	player_input.jumping = is_jumping or just_landed
+	var is_jumping: bool = player.is_on_floor() and player_input.jumping
 	
 	if is_jumping:
 		character.action_behavior("Jump_Start")
@@ -49,3 +44,4 @@ func vertical_movement(delta: float) -> void:
 func jump() -> void:
 	player.velocity.y = player.jump_speed
 	player.snap_vector = Vector3.ZERO
+	player_input.jumping = false
