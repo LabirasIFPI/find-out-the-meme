@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5lwrufx0hh8k"]
+
+[ext_resource type="Script" path="res://src/scripts/components/transition/transition_in.gd" id="1_p27w7"]
+[ext_resource type="Script" path="res://src/scripts/components/transition/overlay.gd" id="1_waoj0"]
+[ext_resource type="Shader" path="res://src/modules/transition/transition_in.gdshader" id="2_kge32"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pwovo"]
+shader = ExtResource("2_kge32")
+shader_parameter/progress = null
+shader_parameter/diamondPixelSize = 10.0
+
+[node name="Transition_in" type="CanvasLayer"]
+script = ExtResource("1_p27w7")
+
+[node name="Overlay" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_pwovo")
+custom_minimum_size = Vector2(1152, 650)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_waoj0")
