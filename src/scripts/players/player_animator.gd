@@ -30,7 +30,7 @@ func _on_animation_finished(anim_name: String) -> void:
 		anim_name == "Jump_Land"
 	)
 	
-	if anim_name == "Jump_Full_Short":
+	if anim_name == "Jump_Start":
 		animation.play("Jump_Idle")
 	
 	if action_condition:

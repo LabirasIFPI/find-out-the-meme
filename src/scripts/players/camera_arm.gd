@@ -17,6 +17,7 @@ func _unhandled_input(event) -> void:
 	
 	rotation_degrees.y -= event.relative.x * mouse_sensitivity
 	rotation_degrees.y = wrapf(rotation_degrees.y, 0.0, 360.0)
+	
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_end"):
