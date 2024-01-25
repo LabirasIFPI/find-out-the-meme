@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxwn47fjqmylf"]
+
+[ext_resource type="Script" path="res://src/scripts/tiles/big_screem.gd" id="1_m1bwf"]
+
+[node name="BigScreem" type="Node3D"]
+script = ExtResource("1_m1bwf")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.66949, 3.81218, 0)
+size = Vector3(10.339, 8.62436, 1)

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://ps58l24uetwk"]
+
+[ext_resource type="PackedScene" uid="uid://b0uvolij7r7po" path="res://src/assets/KayKit Medieval Builder Pack 1.0/Models/tiles/hex/dae/hex_forest.dae" id="1_31yle"]
+[ext_resource type="Script" path="res://src/scripts/tiles/ground_with_image.gd" id="1_edlol"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_l2my5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_r13my"]
+height = 1.17171
+radius = 1.15303
+
+[node name="GroundWithImage" type="Node3D"]
+script = ExtResource("1_edlol")
+
+[node name="hex_forest" parent="." instance=ExtResource("1_31yle")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="hex_forest"]
+physics_material_override = SubResource("PhysicsMaterial_l2my5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hex_forest/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00778961, 0.455358, -0.0701842)
+shape = SubResource("CylinderShape3D_r13my")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="hex_forest"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0322976, 0.254395, -0.0230103)
+size = Vector3(1.52087, 1.50879, 1.25696)
