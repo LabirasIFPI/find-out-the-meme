@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dhv3irpxinfou"]
+[gd_scene load_steps=7 format=3 uid="uid://dhv3irpxinfou"]
 
 [ext_resource type="Script" path="res://src/scripts/multiplayer/level.gd" id="1_ymcxy"]
+[ext_resource type="PackedScene" uid="uid://ps58l24uetwk" path="res://src/scenes/components/ground_with_image.tscn" id="2_j8y27"]
+[ext_resource type="PackedScene" uid="uid://bxwn47fjqmylf" path="res://src/scenes/components/big_screem.tscn" id="3_28odu"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_w04wm"]
 size = Vector2(100, 100)
@@ -35,3 +37,11 @@ transform = Transform3D(1, 0, 0, 0, 0.0699828, 0.997548, 0, -0.997548, 0.0699828
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://src/scenes/players/barbarian.tscn", "res://src/scenes/players/knight.tscn", "res://src/scenes/players/mage.tscn", "res://src/scenes/players/rogue_hooded.tscn")
 spawn_path = NodePath("../Players")
+
+spawn_limit = 2
+
+[node name="GroundWithImage" parent="." instance=ExtResource("2_j8y27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67371, 0.23494, -3.97313)
+
+[node name="BigScreem" parent="." instance=ExtResource("3_28odu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.11283, 0, -13.2756)

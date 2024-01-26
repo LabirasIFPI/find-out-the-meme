@@ -17,6 +17,8 @@ config/features=PackedStringArray("4.2", "GL Compatibility")
 [autoload]
 
 ConfigsPlayer="*res://src/scripts/multiplayer/configs_player.gd"
+AnswerDatabase="*res://src/database/answers/answer_database.gd"
+QuestionsDatabase="*res://src/database/questions/questions_database.gd"
 
 [display]
 
