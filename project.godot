@@ -11,7 +11,17 @@ config_version=5
 [application]
 
 config/name="Find out the meme!"
+run/main_scene="res://src/scenes/menus/multiplayer_controle.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
+
+[autoload]
+
+ConfigsPlayer="*res://src/scripts/multiplayer/configs_player.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [filesystem]
 

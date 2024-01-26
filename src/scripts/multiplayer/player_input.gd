@@ -6,7 +6,7 @@ extends MultiplayerSynchronizer
 
 # Synchronized property.
 @export var direction := Vector2()
-@onready var move_state: Node = get_parent().get_node("States/Move")
+@export var nickname := ""
 
 func _ready():
 	# Only process for the local player.

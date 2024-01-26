@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwrj5dr1l6koc"]
+
+[ext_resource type="Script" path="res://src/scripts/multiplayer/configs_player.gd" id="1_ytk3a"]
+
+[node name="ConfigsPlayer" type="Node"]
+script = ExtResource("1_ytk3a")

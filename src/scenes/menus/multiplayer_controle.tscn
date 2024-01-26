@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://cku20wa4ghrgb"]
+[gd_scene load_steps=8 format=3 uid="uid://cku20wa4ghrgb"]
 
 [ext_resource type="Script" path="res://src/scripts/multiplayer/multiplayer_controle.gd" id="1_oy1da"]
+[ext_resource type="FontFile" uid="uid://djvm8ylot2sek" path="res://src/fonts/1/font.ttf" id="2_jsja0"]
+
+[sub_resource type="FontVariation" id="FontVariation_bgtnh"]
+base_font = ExtResource("2_jsja0")
+
+[sub_resource type="FontVariation" id="FontVariation_ea00b"]
+base_font = ExtResource("2_jsja0")
+
+[sub_resource type="FontVariation" id="FontVariation_2ltro"]
+base_font = ExtResource("2_jsja0")
+
+[sub_resource type="FontVariation" id="FontVariation_ghh53"]
+base_font = ExtResource("2_jsja0")
+
+[sub_resource type="FontVariation" id="FontVariation_2chrs"]
+base_font = ExtResource("2_jsja0")
 
 [node name="MultiplayerControle" type="Node"]
 script = ExtResource("1_oy1da")
@@ -16,33 +32,66 @@ spawn_limit = 1
 process_mode = 3
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1280.0
+offset_bottom = 720.0
 
 [node name="Net" type="VBoxContainer" parent="UI"]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 100.0
+offset_right = 1280.0
+offset_bottom = 720.0
+alignment = 1
 
 [node name="Options" type="HBoxContainer" parent="UI/Net"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="UI/Net/Options"]
-layout_mode = 2
-text = "Direct"
-
-[node name="Host" type="Button" parent="UI/Net/Options"]
-layout_mode = 2
-text = "Host"
-
-[node name="Connect" type="Button" parent="UI/Net/Options"]
-layout_mode = 2
-text = "Connect"
-
-[node name="Remote" type="LineEdit" parent="UI/Net/Options"]
-layout_mode = 2
-text = "127.0.0.1"
 alignment = 1
 
-[connection signal="pressed" from="UI/Net/Options/Host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="UI/Net/Options/Connect" to="." method="_on_connect_pressed"]
+[node name="Buttons" type="VBoxContainer" parent="UI/Net/Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Net/Options/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_bgtnh")
+text = "Acessar sala como:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Host" type="Button" parent="UI/Net/Options/Buttons"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_ea00b")
+text = "Host"
+
+[node name="Connect" type="Button" parent="UI/Net/Options/Buttons"]
+custom_minimum_size = Vector2(250, 50)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_2ltro")
+text = "Connect"
+
+[node name="EditTexts" type="VBoxContainer" parent="UI/Net/Options"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UI/Net/Options/EditTexts"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_ghh53")
+text = "Configurações da sala:"
+
+[node name="Remote" type="LineEdit" parent="UI/Net/Options/EditTexts"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_2chrs")
+text = "127.0.0.1"
+placeholder_text = "Código do servidor (Ex.: 127.0.0.1)"
+alignment = 1
+
+[node name="Nickname" type="LineEdit" parent="UI/Net/Options/EditTexts"]
+custom_minimum_size = Vector2(400, 50)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_2chrs")
+placeholder_text = "Nickname"
+alignment = 1
+
+[node name="SkinSelector" type="HBoxContainer" parent="UI/Net"]
+layout_mode = 2
+
+[connection signal="pressed" from="UI/Net/Options/Buttons/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="UI/Net/Options/Buttons/Connect" to="." method="_on_connect_pressed"]
