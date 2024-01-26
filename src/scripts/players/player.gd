@@ -13,6 +13,7 @@ var snap_vector: Vector3 = Vector3.DOWN
 @export var speed: float = 7.0
 @export var rotation_speed: float = 5.0
 
+#@export var player_nickname: String = ""
 @export var player_id := 1 :
 	set(id):
 		player_id = id
@@ -21,12 +22,13 @@ var snap_vector: Vector3 = Vector3.DOWN
 
 # Player synchronized input.
 @onready var input = $PlayerInput
+var player_nick: String = ""
 
 
 func _ready():
 	if player_id == multiplayer.get_unique_id():
 		camera_arm.get_node("Camera").current = true
-		
+		input.nickname = $"/root/ConfigsPlayer".nickname
 
 func _physics_process(delta: float) -> void:
 	move_state.horizontal_movement()
@@ -36,6 +38,9 @@ func _physics_process(delta: float) -> void:
 	
 	rotate_character(delta)
 	character.animate(Vector2(velocity.x, velocity.z))
+	if input.nickname != player_nick:
+		$"Label_nickname".text = input.nickname
+		player_nick = input.nickname
 
 func _process(_delta: float) -> void:
 	camera_arm.position = position

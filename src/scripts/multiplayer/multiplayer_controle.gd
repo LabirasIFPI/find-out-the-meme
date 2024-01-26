@@ -28,7 +28,7 @@ func _on_host_pressed():
 
 func _on_connect_pressed():
 	# Start as client.
-	var txt : String = $UI/Net/Options/Remote.text
+	var txt : String = $UI/Net/Options/EditTexts/Remote.text
 	if txt == "":
 		OS.alert("Need a remote to connect to.")
 		return
@@ -47,6 +47,8 @@ func start_game():
 	get_tree().paused = false
 	# Only change level on the server.
 	# Clients will instantiate the level via the spawner.
+	$"/root/ConfigsPlayer".skin_selected = "res://src/scenes/players/barbarian.tscn"
+	$"/root/ConfigsPlayer".nickname = $"UI/Net/Options/EditTexts/Nickname".text
 	if multiplayer.is_server():
 		change_level.call_deferred(load("res://src/scenes/main.tscn"))
 
