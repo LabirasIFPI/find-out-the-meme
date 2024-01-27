@@ -1,10 +1,70 @@
-[gd_scene load_steps=5 format=3 uid="uid://dlawg7jtga6r7"]
+[gd_scene load_steps=21 format=3 uid="uid://dlawg7jtga6r7"]
 
 [ext_resource type="Script" path="res://src/scripts/controls/carousel_menu/carousel_menu.gd" id="1_72r4g"]
 [ext_resource type="Texture2D" uid="uid://b0jqgagxgdwiq" path="res://src/scenes/CarouselMenu/assets/gui/main/background.png" id="2_ptd1p"]
 [ext_resource type="PackedScene" uid="uid://dyl0wuwreaqd2" path="res://src/scenes/CarouselMenu/carousel_menu_item.tscn" id="3_67r74"]
+[ext_resource type="Script" path="res://src/scripts/controls/carousel_menu/carousel_menu_item.gd" id="4_mnqef"]
+[ext_resource type="Texture2D" uid="uid://brfrc36tx1q3a" path="res://src/assets/KayKit_Adventurers_1.0_FREE/Samples/rogue.png" id="5_nuijh"]
+[ext_resource type="Texture2D" uid="uid://cch2knkt3obh" path="res://src/assets/KayKit_Adventurers_1.0_FREE/Samples/barbarian.png" id="5_rmfdr"]
+[ext_resource type="Texture2D" uid="uid://bue6fx73q03x" path="res://src/assets/KayKit_Adventurers_1.0_FREE/Samples/knight.png" id="6_uhy2m"]
+[ext_resource type="Texture2D" uid="uid://bbn8lx1b71kq8" path="res://src/assets/KayKit_Adventurers_1.0_FREE/Samples/mage.png" id="7_0mhxr"]
+[ext_resource type="FontFile" uid="uid://djvm8ylot2sek" path="res://src/fonts/1/font.ttf" id="9_u3mhw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_668uk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0m8a"]
+bg_color = Color(0.839216, 0.686275, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fa7i5"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j5v3r"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sg6ki"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.839216, 0.686275, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1pxr0"]
+texture = ExtResource("5_rmfdr")
+region_rect = Rect2(44.154, 177.47, 991.148, 660.765)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_goaj0"]
+texture = ExtResource("6_uhy2m")
+region_rect = Rect2(44.154, 177.47, 991.148, 660.765)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_epob0"]
+texture = ExtResource("7_0mhxr")
+region_rect = Rect2(44.154, 177.47, 991.148, 660.765)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y0ofy"]
+texture = ExtResource("5_nuijh")
+region_rect = Rect2(44.1545, 177.47, 991.148, 660.765)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8cgwp"]
+
+[sub_resource type="FontVariation" id="FontVariation_yveka"]
+base_font = ExtResource("9_u3mhw")
 
 [node name="CarouselMenu" type="Control"]
 layout_mode = 3
@@ -43,7 +103,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Top" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 150)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/Top"]
@@ -53,13 +113,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -63.0
 offset_top = -11.5
-offset_right = 20.0
+offset_right = 63.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Top"
+text = "Select your skin!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Middle" type="Control" parent="VBoxContainer"]
 layout_mode = 2
@@ -164,32 +226,437 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CarouselMenuItem1" parent="VBoxContainer/Middle/Items" instance=ExtResource("3_67r74")]
+[node name="Barbarian_Item" type="PanelContainer" parent="VBoxContainer/Middle/Items"]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 217.0
 offset_top = 47.0
 offset_right = -348.0
 offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_668uk")
+script = ExtResource("4_mnqef")
 
-[node name="Label2" type="Label" parent="VBoxContainer/Middle/Items/CarouselMenuItem1"]
+[node name="CurrentLayer" type="Control" parent="VBoxContainer/Middle/Items/Barbarian_Item"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 25
-text = "Texo que eu quis colocar aqui
-"
 
-[node name="CarouselMenuItem2" parent="VBoxContainer/Middle/Items" instance=ExtResource("3_67r74")]
+[node name="LeftArrow" type="Control" parent="VBoxContainer/Middle/Items/Barbarian_Item/CurrentLayer"]
 layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_vertical = 2
+pivot_offset = Vector2(19, 21)
+
+[node name="TextureRect" type="Panel" parent="VBoxContainer/Middle/Items/Barbarian_Item/CurrentLayer/LeftArrow"]
+layout_mode = 0
+offset_left = -122.702
+offset_top = -11.5945
+offset_right = -82.7016
+offset_bottom = 28.4055
+rotation = 0.797615
+pivot_offset = Vector2(66.5933, 171.389)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w0m8a")
+
+[node name="RightArrow" type="Control" parent="VBoxContainer/Middle/Items/Barbarian_Item/CurrentLayer"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -19.0
+offset_right = 18.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(21, 21)
+
+[node name="TextureRect" type="Panel" parent="VBoxContainer/Middle/Items/Barbarian_Item/CurrentLayer/RightArrow"]
+layout_mode = 0
+offset_left = -122.702
+offset_top = -11.5945
+offset_right = -82.7016
+offset_bottom = 28.4055
+rotation = 0.797615
+pivot_offset = Vector2(66.5933, 171.389)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w0m8a")
+
+[node name="Background" type="Control" parent="VBoxContainer/Middle/Items/Barbarian_Item"]
+layout_mode = 2
+
+[node name="Base" type="PanelContainer" parent="VBoxContainer/Middle/Items/Barbarian_Item/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fa7i5")
+
+[node name="NotCurrent" type="PanelContainer" parent="VBoxContainer/Middle/Items/Barbarian_Item/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j5v3r")
+
+[node name="Current" type="PanelContainer" parent="VBoxContainer/Middle/Items/Barbarian_Item/Background"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sg6ki")
+
+[node name="Label" type="Label" parent="VBoxContainer/Middle/Items/Barbarian_Item"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_1pxr0")
+text = "          
+         "
+
+[node name="Knight_Item" type="PanelContainer" parent="VBoxContainer/Middle/Items"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 217.0
 offset_top = 47.0
 offset_right = -348.0
 offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_668uk")
+script = ExtResource("4_mnqef")
 
-[node name="Label2" type="Label" parent="VBoxContainer/Middle/Items/CarouselMenuItem2"]
+[node name="CurrentLayer" type="Control" parent="VBoxContainer/Middle/Items/Knight_Item"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-size_flags_horizontal = 4
+
+[node name="LeftArrow" type="Control" parent="VBoxContainer/Middle/Items/Knight_Item/CurrentLayer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_vertical = 2
+pivot_offset = Vector2(19, 21)
+
+[node name="TextureRect" type="Panel" parent="VBoxContainer/Middle/Items/Knight_Item/CurrentLayer/LeftArrow"]
+layout_mode = 0
+offset_left = -122.702
+offset_top = -11.5945
+offset_right = -82.7016
+offset_bottom = 28.4055
+rotation = 0.797615
+pivot_offset = Vector2(66.5933, 171.389)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w0m8a")
+
+[node name="RightArrow" type="Control" parent="VBoxContainer/Middle/Items/Knight_Item/CurrentLayer"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -19.0
+offset_right = 18.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(21, 21)
+
+[node name="TextureRect" type="Panel" parent="VBoxContainer/Middle/Items/Knight_Item/CurrentLayer/RightArrow"]
+layout_mode = 0
+offset_left = -122.702
+offset_top = -11.5945
+offset_right = -82.7016
+offset_bottom = 28.4055
+rotation = 0.797615
+pivot_offset = Vector2(66.5933, 171.389)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w0m8a")
+
+[node name="Background" type="Control" parent="VBoxContainer/Middle/Items/Knight_Item"]
+layout_mode = 2
+
+[node name="Base" type="PanelContainer" parent="VBoxContainer/Middle/Items/Knight_Item/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fa7i5")
+
+[node name="NotCurrent" type="PanelContainer" parent="VBoxContainer/Middle/Items/Knight_Item/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j5v3r")
+
+[node name="Current" type="PanelContainer" parent="VBoxContainer/Middle/Items/Knight_Item/Background"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sg6ki")
+
+[node name="Label" type="Label" parent="VBoxContainer/Middle/Items/Knight_Item"]
+layout_mode = 2
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 25
-text = "Item 2"
+theme_override_styles/normal = SubResource("StyleBoxTexture_goaj0")
+text = "          
+         "
+
+[node name="Mage_Item" type="PanelContainer" parent="VBoxContainer/Middle/Items"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 217.0
+offset_top = 47.0
+offset_right = -348.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_668uk")
+script = ExtResource("4_mnqef")
+
+[node name="CurrentLayer" type="Control" parent="VBoxContainer/Middle/Items/Mage_Item"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="LeftArrow" type="Control" parent="VBoxContainer/Middle/Items/Mage_Item/CurrentLayer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_vertical = 2
+pivot_offset = Vector2(19, 21)
+
+[node name="TextureRect" type="Panel" parent="VBoxContainer/Middle/Items/Mage_Item/CurrentLayer/LeftArrow"]
+layout_mode = 0
+offset_left = -122.702
+offset_top = -11.5945
+offset_right = -82.7016
+offset_bottom = 28.4055
+rotation = 0.797615
+pivot_offset = Vector2(66.5933, 171.389)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w0m8a")
+
+[node name="RightArrow" type="Control" parent="VBoxContainer/Middle/Items/Mage_Item/CurrentLayer"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -19.0
+offset_right = 18.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(21, 21)
+
+[node name="TextureRect" type="Panel" parent="VBoxContainer/Middle/Items/Mage_Item/CurrentLayer/RightArrow"]
+layout_mode = 0
+offset_left = -122.702
+offset_top = -11.5945
+offset_right = -82.7016
+offset_bottom = 28.4055
+rotation = 0.797615
+pivot_offset = Vector2(66.5933, 171.389)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w0m8a")
+
+[node name="Background" type="Control" parent="VBoxContainer/Middle/Items/Mage_Item"]
+layout_mode = 2
+
+[node name="Base" type="PanelContainer" parent="VBoxContainer/Middle/Items/Mage_Item/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fa7i5")
+
+[node name="NotCurrent" type="PanelContainer" parent="VBoxContainer/Middle/Items/Mage_Item/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j5v3r")
+
+[node name="Current" type="PanelContainer" parent="VBoxContainer/Middle/Items/Mage_Item/Background"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sg6ki")
+
+[node name="Label" type="Label" parent="VBoxContainer/Middle/Items/Mage_Item"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_epob0")
+text = "          
+         "
+
+[node name="Rogue_Item" type="PanelContainer" parent="VBoxContainer/Middle/Items"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 217.0
+offset_top = 47.0
+offset_right = -348.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_668uk")
+script = ExtResource("4_mnqef")
+
+[node name="CurrentLayer" type="Control" parent="VBoxContainer/Middle/Items/Rogue_Item"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="LeftArrow" type="Control" parent="VBoxContainer/Middle/Items/Rogue_Item/CurrentLayer"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_vertical = 2
+pivot_offset = Vector2(19, 21)
+
+[node name="TextureRect" type="Panel" parent="VBoxContainer/Middle/Items/Rogue_Item/CurrentLayer/LeftArrow"]
+layout_mode = 0
+offset_left = -122.702
+offset_top = -11.5945
+offset_right = -82.7016
+offset_bottom = 28.4055
+rotation = 0.797615
+pivot_offset = Vector2(66.5933, 171.389)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w0m8a")
+
+[node name="RightArrow" type="Control" parent="VBoxContainer/Middle/Items/Rogue_Item/CurrentLayer"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -19.0
+offset_right = 18.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(21, 21)
+
+[node name="TextureRect" type="Panel" parent="VBoxContainer/Middle/Items/Rogue_Item/CurrentLayer/RightArrow"]
+layout_mode = 0
+offset_left = -122.702
+offset_top = -11.5945
+offset_right = -82.7016
+offset_bottom = 28.4055
+rotation = 0.797615
+pivot_offset = Vector2(66.5933, 171.389)
+theme_override_styles/panel = SubResource("StyleBoxFlat_w0m8a")
+
+[node name="Background" type="Control" parent="VBoxContainer/Middle/Items/Rogue_Item"]
+layout_mode = 2
+
+[node name="Base" type="PanelContainer" parent="VBoxContainer/Middle/Items/Rogue_Item/Background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fa7i5")
+
+[node name="NotCurrent" type="PanelContainer" parent="VBoxContainer/Middle/Items/Rogue_Item/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j5v3r")
+
+[node name="Current" type="PanelContainer" parent="VBoxContainer/Middle/Items/Rogue_Item/Background"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_sg6ki")
+
+[node name="Label" type="Label" parent="VBoxContainer/Middle/Items/Rogue_Item"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxTexture_y0ofy")
+text = "          
+         "
 
 [node name="Placements" type="Control" parent="VBoxContainer/Middle"]
 unique_name_in_owner = true
@@ -234,23 +701,37 @@ flat = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Bottom" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 200)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/Bottom"]
+[node name="SelectButton" type="Button" parent="VBoxContainer/Bottom"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -29.5
-offset_top = -11.5
-offset_right = 29.5
-offset_bottom = 11.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Bottom"
+theme_override_fonts/font = SubResource("FontVariation_yveka")
+text = "Select"
+
+[node name="Nickname" type="TextEdit" parent="VBoxContainer/Bottom"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = -25.0
+offset_right = 100.0
+offset_bottom = 25.0
+grow_horizontal = 2
+placeholder_text = "Your nickname"
 
 [connection signal="pressed" from="VBoxContainer/Middle/LeftButton" to="." method="_on_LeftButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/Middle/RightButton" to="." method="_on_RightButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Bottom/SelectButton" to="." method="_on_SelectButton_pressed"]

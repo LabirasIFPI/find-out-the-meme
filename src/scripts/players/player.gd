@@ -24,11 +24,11 @@ var snap_vector: Vector3 = Vector3.DOWN
 @onready var input = $PlayerInput
 var player_nick: String = ""
 
-
 func _ready():
 	if player_id == multiplayer.get_unique_id():
 		camera_arm.get_node("Camera").current = true
 		input.nickname = $"/root/ConfigsPlayer".nickname
+		input.skin = $"/root/ConfigsPlayer".skin_selected
 
 func _physics_process(delta: float) -> void:
 	move_state.horizontal_movement()
@@ -41,6 +41,14 @@ func _physics_process(delta: float) -> void:
 	if input.nickname != player_nick:
 		$"Label_nickname".text = input.nickname
 		player_nick = input.nickname
+		if input.skin == "Barbarian":
+			$"Skin".add_child(preload("res://src/scenes/skins/barbarian.tscn").instantiate())
+		elif input.skin == "Knight":
+			$"Skin".add_child(preload("res://src/scenes/skins/knigth.tscn").instantiate())
+		elif input.skin == "Mage":
+			$"Skin".add_child(preload("res://src/scenes/skins/mage.tscn").instantiate())
+		elif input.skin == "Rogue":
+			$"Skin".add_child(preload("res://src/scenes/skins/rogue_hooded.tscn").instantiate())
 
 func _process(_delta: float) -> void:
 	camera_arm.position = position

@@ -5,7 +5,7 @@ class_name PlayerAnimator
 
 var on_action: bool = false
 
-@export var player: CharacterBody3D
+@onready var player: CharacterBody3D = get_parent()
 
 func animate(velocity: Vector2) -> void:
 	if on_action:
