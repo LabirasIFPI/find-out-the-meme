@@ -1,3 +1,5 @@
+extends Node
+
 const questionsDatabase = [
 {
 	"name": "muricoca",

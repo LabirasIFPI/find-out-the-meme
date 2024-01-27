@@ -7,6 +7,7 @@ extends MultiplayerSynchronizer
 # Synchronized property.
 @export var direction := Vector2()
 @export var nickname := ""
+@export var skin := ""
 
 func _ready():
 	# Only process for the local player.

@@ -13,7 +13,7 @@ extends Control
 @onready var nItems = %Items
 @onready var nPlacements = %Placements
 
-var current_index = 3
+var current_index = 0
 
 @onready var tween = get_tree().create_tween()
 
@@ -221,3 +221,28 @@ func _on_LeftButton_pressed() -> void:
 
 func _on_RightButton_pressed() -> void:
 	go_right()
+
+func get_current_skin() -> String:
+	if current_index == 0 or current_index == 4:
+		return "Barbarian"
+	elif current_index == 1 or current_index == 5:
+		return "Knight"
+	elif current_index == 2 or current_index == 6:
+		return "Mage"
+	elif current_index == 3 or current_index == 7:
+		return "Rogue"
+	else:
+		return ""
+
+func _on_SelectButton_pressed():
+	#if get_current_skin() == "Barbarian":
+		#$"/root/ConfigsPlayer".skin_selected = "res://src/scenes/players/barbarian.tscn"
+	#elif get_current_skin() == "Knight":
+		#$"/root/ConfigsPlayer".skin_selected = "res://src/scenes/players/knight.tscn"
+	#elif get_current_skin() == "Mage":
+		#$"/root/ConfigsPlayer".skin_selected = "res://src/scenes/players/mage.tscn"
+	#elif get_current_skin() == "Rogue":
+		#$"/root/ConfigsPlayer".skin_selected = "res://src/scenes/players/rogue_hooded.tscn"
+	$"/root/ConfigsPlayer".skin_selected = get_current_skin()
+	$"/root/ConfigsPlayer".nickname = $"VBoxContainer/Bottom/Nickname".text
+	get_tree().change_scene_to_file("res://src/scenes/menus/multiplayer_controle.tscn")

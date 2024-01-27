@@ -1,4 +1,4 @@
 extends Node
 
-var skin_selected: String = "res://src/scenes/players/barbarian.tscn"
+var skin_selected: String = ""
 var nickname: String = "Player"

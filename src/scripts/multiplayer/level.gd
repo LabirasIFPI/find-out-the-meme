@@ -28,8 +28,8 @@ func _exit_tree():
 
 
 func add_player(id: int):
-	var skin: String = $"/root/ConfigsPlayer".skin_selected
-	var character = load(skin).instantiate()
+	#var skin: String = $"/root/ConfigsPlayer".skin_selected
+	var character = preload("res://src/scenes/players/player.tscn").instantiate()
 	# Set player id.
 	character.player_id = id
 	# Randomize character position.
