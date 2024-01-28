@@ -1,26 +1,34 @@
 extends Node3D
 
-
+@export var selected_question: Dictionary
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var questions = QuestionsDatabase.questionsDatabase
-	var position: int = (randi() % len(questions))
+	var answers = QuestionsDatabase.questionsDatabase
 	
-	var selected_question = questions[position]
-	var node_csgBox3d : CSGBox3D = $CSGBox3D
-	var texture = load(selected_question.image_src)
+	var position_answer: int = (randi() % len(answers))
+	#var postion: int = (randi() % 50)
 	
-	var mat: StandardMaterial3D = node_csgBox3d.material
+	#print("postition")
+	#print(len(answers))
+	#print(answers[position])
+	
+	selected_question = answers[position_answer]
+	var node : CSGBox3D = $"CSGBox3D"
+	var texture = load(selected_question.image_src) 
+	var mat : StandardMaterial3D = node.material
 	
 	if !mat:
 		mat = StandardMaterial3D.new()
-		node_csgBox3d.material = mat
-	
+		node.material = mat
 	mat.albedo_texture = texture
-	#print(selected_question)
+	
+	#print(node)
+	
 	
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	#if !mat : # in case no material created (in editor / elsewhere)
+		#mat = SpatialMaterial.new()
+		#boxNode.material = mat
+		#mat.albedo_texture = texture
+

@@ -1,7 +1,7 @@
 # level.gd
 extends Node3D
 
-const SPAWN_RANDOM := 5.0
+const SPAWN_RANDOM := 2.0
 
 func _ready():
 	# We only need to spawn players on the server.
@@ -34,7 +34,7 @@ func add_player(id: int):
 	character.player_id = id
 	# Randomize character position.
 	var pos := Vector2.from_angle(randf() * 2 * PI)
-	character.position = Vector3(pos.x * SPAWN_RANDOM * randf(), 0, pos.y * SPAWN_RANDOM * randf())
+	character.position = Vector3(pos.x * SPAWN_RANDOM * randf(), 2, 20)
 	character.name = str(id)
 	$Players.add_child(character, true)
 
