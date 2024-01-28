@@ -235,14 +235,6 @@ func get_current_skin() -> String:
 		return ""
 
 func _on_SelectButton_pressed():
-	#if get_current_skin() == "Barbarian":
-		#$"/root/ConfigsPlayer".skin_selected = "res://src/scenes/players/barbarian.tscn"
-	#elif get_current_skin() == "Knight":
-		#$"/root/ConfigsPlayer".skin_selected = "res://src/scenes/players/knight.tscn"
-	#elif get_current_skin() == "Mage":
-		#$"/root/ConfigsPlayer".skin_selected = "res://src/scenes/players/mage.tscn"
-	#elif get_current_skin() == "Rogue":
-		#$"/root/ConfigsPlayer".skin_selected = "res://src/scenes/players/rogue_hooded.tscn"
 	$"/root/ConfigsPlayer".skin_selected = get_current_skin()
 	$"/root/ConfigsPlayer".nickname = $"VBoxContainer/Bottom/Nickname".text
 	get_tree().change_scene_to_file("res://src/scenes/menus/multiplayer_controle.tscn")

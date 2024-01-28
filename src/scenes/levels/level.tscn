@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://w73kl6ctppvu"]
+
+[ext_resource type="Script" path="res://src/scripts/multiplayer/level.gd" id="1_28s7s"]
+[ext_resource type="PackedScene" uid="uid://ps58l24uetwk" path="res://src/scenes/components/ground_with_image.tscn" id="2_jx3bl"]
+[ext_resource type="PackedScene" uid="uid://bxwn47fjqmylf" path="res://src/scenes/components/big_screem.tscn" id="3_un77u"]
+[ext_resource type="PackedScene" uid="uid://korrvsr8vcns" path="res://src/scenes/components/world_environment.tscn" id="4_vjlsb"]
+[ext_resource type="Script" path="res://src/scripts/multiplayer/floor.gd" id="5_8njx4"]
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_28s7s")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.18121, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0699828, 0.997548, 0, -0.997548, 0.0699828, 0, 48.7736, 0)
+
+[node name="Players" type="Node3D" parent="."]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://src/scenes/players/player.tscn")
+spawn_path = NodePath("../Players")
+spawn_limit = 2
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("4_vjlsb")]
+
+[node name="Floor" type="Node3D" parent="."]
+script = ExtResource("5_8njx4")
+
+[node name="Tile1" parent="Floor" instance=ExtResource("2_jx3bl")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
+
+[node name="Tile2" parent="Floor" instance=ExtResource("2_jx3bl")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 9.9935, 0, 0)
+
+[node name="Tile3" parent="Floor" instance=ExtResource("2_jx3bl")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 14.953, 0, 8.68427)
+
+[node name="Tile4" parent="Floor" instance=ExtResource("2_jx3bl")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 5.13181, 0, 8.68427)
+
+[node name="Tile5" parent="Floor" instance=ExtResource("2_jx3bl")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, -5.03399, 0, 8.68427)
+
+[node name="Tile6" parent="Floor" instance=ExtResource("2_jx3bl")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0.0489044, 0, 17.3855)
+
+[node name="Tile7" parent="Floor" instance=ExtResource("2_jx3bl")]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 10.1285, 0, 17.3855)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[node name="BigScreem" parent="." instance=ExtResource("3_un77u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[connection signal="timeout" from="Timer" to="Floor" method="_on_timer_timeout"]

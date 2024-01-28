@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwob6sk5kgyyi"]
+
+[ext_resource type="Script" path="res://src/scripts/multiplayer/lobby.gd" id="1_1qumk"]
+[ext_resource type="PackedScene" uid="uid://korrvsr8vcns" path="res://src/scenes/components/world_environment.tscn" id="4_q3dpb"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_w04wm"]
+size = Vector2(100, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xx61l"]
+albedo_color = Color(0.117647, 0.321569, 0.211765, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jshx5"]
+size = Vector3(100, 1, 100)
+
+[node name="Lobby" type="Node3D"]
+script = ExtResource("1_1qumk")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.18121, 0)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="Texture" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_w04wm")
+surface_material_override/0 = SubResource("StandardMaterial3D_xx61l")
+
+[node name="Collision" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_jshx5")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0699828, 0.997548, 0, -0.997548, 0.0699828, 0, 48.7736, 0)
+
+[node name="Players" type="Node3D" parent="."]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://src/scenes/players/player.tscn")
+spawn_path = NodePath("../Players")
+spawn_limit = 2
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("4_q3dpb")]

@@ -1,18 +1,18 @@
 extends Node3D
 
-
+@export var selectedAnswer: Dictionary
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var answers = QuestionsDatabase.questionsDatabase
 	
-	var position: int = (randi() % len(answers))
+	var position_answer: int = (randi() % len(answers))
 	#var postion: int = (randi() % 50)
 	
 	#print("postition")
 	#print(len(answers))
 	#print(answers[position])
 	
-	var selectedAnswer = answers[position]
+	selectedAnswer = answers[position_answer]
 	var node : CSGBox3D = $hex_forest/CSGBox3D
 	var texture = load(selectedAnswer.image_src) 
 	var mat : StandardMaterial3D = node.material

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://cku20wa4ghrgb"]
+[gd_scene load_steps=9 format=3 uid="uid://cku20wa4ghrgb"]
 
 [ext_resource type="Script" path="res://src/scripts/multiplayer/multiplayer_controle.gd" id="1_oy1da"]
 [ext_resource type="FontFile" uid="uid://djvm8ylot2sek" path="res://src/fonts/1/font.ttf" id="2_jsja0"]
+[ext_resource type="Texture2D" uid="uid://b0jqgagxgdwiq" path="res://src/scenes/CarouselMenu/assets/gui/main/background.png" id="3_jps5p"]
 
 [sub_resource type="FontVariation" id="FontVariation_bgtnh"]
 base_font = ExtResource("2_jsja0")
@@ -21,10 +22,19 @@ base_font = ExtResource("2_jsja0")
 [node name="MultiplayerControle" type="Node"]
 script = ExtResource("1_oy1da")
 
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_jps5p")
+expand_mode = 3
+
 [node name="Level" type="Node" parent="."]
 
 [node name="LevelSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://src/scenes/main.tscn")
+_spawnable_scenes = PackedStringArray("res://src/scenes/levels/lobby.tscn", "res://src/scenes/levels/level.tscn")
 spawn_path = NodePath("../Level")
 spawn_limit = 1
 
