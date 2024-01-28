@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhv3irpxinfou"]
+[gd_scene load_steps=7 format=3 uid="uid://b028ut2nbgfgx"]
 
-[ext_resource type="Script" path="res://src/scripts/multiplayer/level.gd" id="1_ymcxy"]
-[ext_resource type="PackedScene" uid="uid://bxwn47fjqmylf" path="res://src/scenes/components/big_screem.tscn" id="3_28odu"]
+[ext_resource type="Script" path="res://src/scripts/multiplayer/level_01.gd" id="1_87cu2"]
+[ext_resource type="PackedScene" uid="uid://ps58l24uetwk" path="res://src/scenes/components/ground_with_image.tscn" id="2_adubo"]
+[ext_resource type="PackedScene" uid="uid://bxwn47fjqmylf" path="res://src/scenes/components/big_screem.tscn" id="3_sjoaq"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_w04wm"]
 size = Vector2(100, 100)
@@ -13,7 +14,7 @@ albedo_color = Color(0.117647, 0.321569, 0.211765, 1)
 size = Vector3(100, 1, 100)
 
 [node name="Main" type="Node3D"]
-script = ExtResource("1_ymcxy")
+script = ExtResource("1_87cu2")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.73885, 3.18121, 0)
@@ -33,10 +34,25 @@ transform = Transform3D(1, 0, 0, 0, 0.0699828, 0.997548, 0, -0.997548, 0.0699828
 
 [node name="Players" type="Node3D" parent="."]
 
+[node name="GroundWithImage" parent="." instance=ExtResource("2_adubo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67371, 0.23494, -3.38362)
+
+[node name="GroundWithImage5" parent="." instance=ExtResource("2_adubo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67371, 0.23494, 3.01371)
+
+[node name="MainGroudWithImage" parent="." instance=ExtResource("2_adubo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67371, 0.23494, -0.220752)
+
+[node name="GroundWithImage4" parent="." instance=ExtResource("2_adubo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23319, 0.23494, -0.220752)
+
+[node name="GroundWithImage3" parent="." instance=ExtResource("2_adubo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.79002, 0.23494, -0.220752)
+
+[node name="BigScreem" parent="." instance=ExtResource("3_sjoaq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99725, 0, -13.2756)
+
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 _spawnable_scenes = PackedStringArray("res://src/scenes/players/barbarian.tscn", "res://src/scenes/players/knight.tscn", "res://src/scenes/players/mage.tscn", "res://src/scenes/players/rogue_hooded.tscn", "res://src/scenes/players/player.tscn")
 spawn_path = NodePath("../Players")
 spawn_limit = 2
-
-[node name="BigScreem" parent="." instance=ExtResource("3_28odu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.99725, 0, -13.2756)

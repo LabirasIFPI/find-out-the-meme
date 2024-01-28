@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cexp78wx6ifts"]
+
+[ext_resource type="Script" path="res://src/scripts/components/timer/timer.gd" id="1_j6r0r"]
+
+[node name="Timer" type="Node3D"]
+script = ExtResource("1_j6r0r")
+
+[node name="Label3D" type="Label3D" parent="."]

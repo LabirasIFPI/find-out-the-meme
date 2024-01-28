@@ -8,3 +8,8 @@ script = ExtResource("1_m1bwf")
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.66949, 3.81218, 0)
 size = Vector3(10.339, 8.62436, 1)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.669, 7.107, 3.22795)
+pixel_size = 0.02
+text = "20:30"

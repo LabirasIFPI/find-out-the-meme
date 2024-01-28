@@ -16,7 +16,6 @@ func _ready():
 @rpc("call_local")
 func jump():
 	jumping = true
-
 func _process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

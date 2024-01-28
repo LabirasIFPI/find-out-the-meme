@@ -68,3 +68,5 @@ func _input(event):
 		return
 	if event.is_action("ui_home") and Input.is_action_just_pressed("ui_home"):
 		change_level.call_deferred(load("res://src/scenes/main.tscn"))
+	if event.is_action("initiate_game") and Input.is_action_just_pressed("initiate_game"):
+		change_level.call_deferred(load("res://src/scenes/levels/level_01.tscn"))

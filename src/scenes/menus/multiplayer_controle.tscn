@@ -24,7 +24,7 @@ script = ExtResource("1_oy1da")
 [node name="Level" type="Node" parent="."]
 
 [node name="LevelSpawner" type="MultiplayerSpawner" parent="."]
-_spawnable_scenes = PackedStringArray("res://src/scenes/main.tscn")
+_spawnable_scenes = PackedStringArray("res://src/scenes/main.tscn", "res://src/scenes/levels/level_01.tscn")
 spawn_path = NodePath("../Level")
 spawn_limit = 1
 
