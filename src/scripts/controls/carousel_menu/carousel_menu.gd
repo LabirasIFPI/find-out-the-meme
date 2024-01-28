@@ -237,4 +237,28 @@ func get_current_skin() -> String:
 func _on_SelectButton_pressed():
 	$"/root/ConfigsPlayer".skin_selected = get_current_skin()
 	$"/root/ConfigsPlayer".nickname = $"VBoxContainer/Bottom/Nickname".text
+	
+	var main_answers = QuestionsDatabase.questionsDatabase
+	var main_position_answer: int = (randi() % len(main_answers))
+	var main_selected_question = main_answers[main_position_answer]
+	var tile_correct = (randi() % 7)
+	$"/root/ConfigsPlayer".level1_correct = tile_correct
+	$"/root/ConfigsPlayer".level1[tile_correct] = main_selected_question
+	#print("-------123------")
+	#print(tile_correct)
+	#print($"/root/ConfigsPlayer".level1)
+	
+	for i in range(7):
+		if i != tile_correct:
+			var answers = QuestionsDatabase.questionsDatabase
+			var position_answer: int = (randi() % len(answers))
+			var selected_question = answers[position_answer]
+			$"/root/ConfigsPlayer".level1[i] = selected_question
+	#print("-------123------")
+	#print($"/root/ConfigsPlayer".level1_correct)
+	#print($"/root/ConfigsPlayer".level1)
+	
+	
+	
+	
 	get_tree().change_scene_to_file("res://src/scenes/menus/multiplayer_controle.tscn")
