@@ -5,6 +5,7 @@ const SPAWN_RANDOM := 2.0
 
 func _ready():
 	# We only need to spawn players on the server.
+	#update_tile()
 	if not multiplayer.is_server():
 		return
 
@@ -18,6 +19,7 @@ func _ready():
 	# Spawn the local player unless this is a dedicated server export.
 	if not OS.has_feature("dedicated_server"):
 		add_player(1)
+		config_tile()
 
 
 func _exit_tree():
@@ -43,3 +45,17 @@ func del_player(id: int):
 	if not $Players.has_node(str(id)):
 		return
 	$Players.get_node(str(id)).queue_free()
+
+	
+func config_tile():
+	$"BigScreem".selected_question = $"/root/ConfigsPlayer".level1[$"/root/ConfigsPlayer".level1_correct]
+	for i in range(7):
+		$"Floor".get_child(i).selectedAnswer = $"/root/ConfigsPlayer".level1[i]
+		$"Floor".get_child(i).iniciar()
+
+func update_tile():
+	if $"Players/1/PlayerInput":
+		$"BigScreem".selected_question = $"Players/1/PlayerInput".level1[$"Players/1/PlayerInput".level1_correct]
+		for i in range(7):
+			$"Floor".get_child(i).selectedAnswer = $"Players/1/PlayerInput".level1[i]
+			$"Floor".get_child(i).iniciar()

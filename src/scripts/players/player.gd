@@ -29,6 +29,8 @@ func _ready():
 		camera_arm.get_node("Camera").current = true
 		input.nickname = $"/root/ConfigsPlayer".nickname
 		input.skin = $"/root/ConfigsPlayer".skin_selected
+		input.level1 = $"/root/ConfigsPlayer".level1
+		input.level1_correct = $"/root/ConfigsPlayer".level1_correct
 
 func _physics_process(delta: float) -> void:
 	move_state.horizontal_movement()
@@ -49,6 +51,9 @@ func _physics_process(delta: float) -> void:
 			$"Skin".add_child(preload("res://src/scenes/skins/mage.tscn").instantiate())
 		elif input.skin == "Rogue":
 			$"Skin".add_child(preload("res://src/scenes/skins/rogue_hooded.tscn").instantiate())
+		if player_id != 1:
+			if get_parent().get_parent().name == "Level":
+				get_parent().get_parent().update_tile()
 
 func _process(_delta: float) -> void:
 	camera_arm.position = position
